@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Buildar.App.Views.CustomBuildPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Buildar.App.ViewModels"
+    xmlns:models="using:Buildar.App.ViewModels"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
+        <Grid>
+            <GridView ItemsSource="{x:Bind ViewModel.Buildparts, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="local:BuildPart" >
+                        <Grid Height="200" Width="320" AutomationProperties.Name="{x:Bind Part}" Margin="5">
+                            <Image Source="{x:Bind PartImageUrl}" Stretch="UniformToFill"/>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Background="{ThemeResource SystemAltHighColor}" Padding="12" Opacity="0.9">
+                                <TextBlock TextAlignment="Center" FontSize="40" Text="{x:Bind PartNameSum}"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </Grid>
+    </Grid>
+</Page>

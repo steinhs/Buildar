@@ -1,0 +1,53 @@
+﻿using System;
+using Buildar.Model;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.Http;
+
+namespace Buildar.App.DataAccess
+{
+    public class Builds
+    {
+        readonly HttpClient _httpClient = new HttpClient();
+
+        static readonly Uri buildsBaseUri = new Uri("https://localhost:44367/api/Builds");
+
+        public async Task<Build[]> GetBuildsAsync()
+        {
+            HttpResponseMessage result = await _httpClient.GetAsync(buildsBaseUri);
+            string json = await result.Content.ReadAsStringAsync();
+            Build[] builds = JsonConvert.DeserializeObject<Build[]>(json);
+
+            return builds;
+        }
+
+        internal async Task<bool> AddBuildAsync(Build build)
+        {
+            string json = JsonConvert.SerializeObject(build);
+            HttpResponseMessage result = await _httpClient.PostAsync(buildsBaseUri, new StringContent(json, Encoding.UTF8, "application/json"));
+
+            if (result.IsSuccessStatusCode)
+            {
+                json = await result.Content.ReadAsStringAsync();
+                var returnedBuild = JsonConvert.DeserializeObject<Build>(json);
+                build.BuildId = returnedBuild.BuildId;
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        internal async Task<bool> DeleteBuildAsync(Build build)
+        {
+            HttpResponseMessage result = await _httpClient.DeleteAsync(new Uri(buildsBaseUri, "builds/" + build.BuildId.ToString()));
+            return result.IsSuccessStatusCode;
+        }
+
+    }
+}
