@@ -9,24 +9,26 @@
 
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid>
-            <GridView IsItemClickEnabled="True" >
+            <GridView SelectionMode="None" IsItemClickEnabled="True" x:Name="GridViewContent" ItemClick="GridViewContent_ItemClick">
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="5">
-                            <Border Background="LightGray" Height="200" Width="200">
-                                <TextBlock Text="{Binding}" 
-                               FontSize="30" Foreground="Black" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid Margin="10">
+                            <Border Background="{ThemeResource SystemAccentColor}" Height="200" Width="200" BorderThickness="5" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                                <TextBlock Text="{Binding}" FontSize="30" Foreground="{ThemeResource TextBoxBorderThemeBrush}" TextWrapping="Wrap"
+                                           TextAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>
+                <!-- TEMP >> <GridViewItem x:Name="TempItem" Background="LightGray" Foreground="Black" Height="200" Width="200" Margin="10" Content="Start build" FontSize="30" Tag="TempItem">
+                </GridViewItem> -->
                 <GridView.Items>
-                    <x:String>Build your own computer</x:String >
-                    <x:String>Community build</x:String>
+                    <x:String>Start a new build</x:String>
                     <x:String>High End</x:String>
                     <x:String>Mid Range</x:String>
                     <x:String>Budget Build</x:String>
-                </GridView.Items>
+                    <x:String>Community</x:String>
+                </GridView.Items> 
             </GridView>
         </Grid>
     </Grid>
