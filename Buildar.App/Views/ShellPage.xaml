@@ -37,6 +37,7 @@
             <winui:NavigationViewItem x:Uid="Shell_HighEnd" Icon="Document" helpers:NavHelper.NavigateTo="views:HighEndPage" />
             <winui:NavigationViewItem x:Uid="Shell_MidRange" Icon="Document" helpers:NavHelper.NavigateTo="views:MidRangePage" />
             <winui:NavigationViewItem x:Uid="Shell_Budget" Icon="Document" helpers:NavHelper.NavigateTo="views:BudgetPage" />
+            <winui:NavigationViewItem x:Uid="Shell_Community" Icon="Document" helpers:NavHelper.NavigateTo="views:CommunityPage" />
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior

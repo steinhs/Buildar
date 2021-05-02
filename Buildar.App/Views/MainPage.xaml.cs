@@ -37,8 +37,8 @@ namespace Buildar.App.Views
                     this.Frame.Navigate(typeof(BudgetPage));
                     break;
 
-                case "Community build":
-                    this.Frame.Navigate(typeof(MainPage));
+                case "Community":
+                    this.Frame.Navigate(typeof(CommunityPage));
                     break;
             }
 

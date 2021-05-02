@@ -8,6 +8,8 @@
     xmlns:models="using:Buildar.App.ViewModels"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
+    <!-- TODO: Make "MenuFlyout" (or similiar) for each gridbox which shows every
+    computerpart and can be selected and will replace the current part -->
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid>
             <GridView ItemsSource="{x:Bind ViewModel.Buildparts, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">

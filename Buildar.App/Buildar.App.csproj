@@ -147,6 +147,7 @@
     <Compile Include="ViewModels\BudgetViewModel.cs" />
     <Compile Include="ViewModels\BuildPart.cs" />
     <Compile Include="ViewModels\BuildTemp.cs" />
+    <Compile Include="ViewModels\CommunityViewModel.cs" />
     <Compile Include="ViewModels\CustomBuildViewModel.cs" />
     <Compile Include="ViewModels\HighEndViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -155,8 +156,8 @@
     <Compile Include="Views\BudgetPage.xaml.cs">
       <DependentUpon>BudgetPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CpusListPage.xaml.cs">
-      <DependentUpon>CpusListPage.xaml</DependentUpon>
+    <Compile Include="Views\CommunityPage.xaml.cs">
+      <DependentUpon>CommunityPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CustomBuildPage.xaml.cs">
       <DependentUpon>CustomBuildPage.xaml</DependentUpon>
@@ -205,9 +206,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CpusListPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\CommunityPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CustomBuildPage.xaml">
       <Generator>MSBuild:Compile</Generator>

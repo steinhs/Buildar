@@ -145,4 +145,8 @@
     <value>Budget</value>
     <comment>Navigation view item name for Budget</comment>
   </data>
+  <data name="Shell_Community.Content" xml:space="preserve">
+    <value>Community</value>
+    <comment>Navigation view item name for Community</comment>
+  </data>
 </root>
