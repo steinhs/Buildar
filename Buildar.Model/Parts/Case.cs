@@ -7,15 +7,13 @@ namespace Buildar.Model.Parts
 {
     public class Case
     {
-        public string CaseId { get; set; }
+        public int Id { get; set; }
 
-        public string CaseModel { get; set; }
+        public string Model { get; set; }
 
-        public string CaseMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int CasePrice { get; set; }
+        public int Price { get; set; }
 
-        public int CaseSize { get; set; }
-        //Case sizes: ITX-1, ATX-2
     }
 }

@@ -17,7 +17,6 @@ namespace Buildar.App.ViewModels
                 return $"{this.Part}";
             }
         }
-
         public string PartImageUrl
         {
             get

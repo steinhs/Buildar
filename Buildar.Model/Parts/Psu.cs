@@ -6,16 +6,15 @@ namespace Buildar.Model.Parts
 {
     public class Psu
     {
-        public string PsuId { get; set; }
+        public string Id { get; set; }
 
-        public string PsuModel { get; set; }
+        public string Model { get; set; }
 
-        public string PsuMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int PsuPrice { get; set; }
+        public int Price { get; set; }
 
-        public int PsuWattage { get; set; }
+        public int Watt { get; set; }
 
-        public string PsuCertification { get; set; }
     }
 }

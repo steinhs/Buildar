@@ -7,23 +7,23 @@ namespace Buildar.Model
 {
     public class Build
     {
-        public string BuildId { get; set; }
+        public int Id { get; set; }
 
-        public string BuildName { get; set; }
+        public string Name { get; set; }
 
-        public Cpu Cpu { get; set; }
+        public Cpu CpuId { get; set; }
 
-        public Gpu Gpu { get; set; }
+        public Gpu GpuId { get; set; }
 
-        public Memory Memory { get; set; }
+        public Memory MemoryId { get; set; }
 
-        public Storage Storage { get; set; }
-        //TODO Have list of storage
+        public Storage StorageId { get; set; }
+        //TODO Many storage
 
-        public Psu Psu { get; set; }
+        public Psu PsuId { get; set; }
 
         // URL FOR IMAGE
-        public string MainImage { get; set; }
+        public string ImgURL { get; set; }
 
         // Foreign key to user. One build can have one user.
         public int UserId { get; set; }

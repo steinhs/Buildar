@@ -6,19 +6,14 @@ namespace Buildar.Model.Parts
 {
     public class Gpu
     {
-        public string GpuId { get; set; }
+        public int Id { get; set; }
 
-        public string GpuModel { get; set; }
+        public string Model { get; set; }
 
-        public string GpuMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int GpuPrice { get; set; }
+        public int Price { get; set; }
 
-        public int GpuVram { get; set; }
-
-        public int GpuClock { get; set; }
-
-        public int GpuReleaseDate { get; set; }
-        public int GpuEstWattage { get; set; }
+        public int EstWatt { get; set; }
     }
 }

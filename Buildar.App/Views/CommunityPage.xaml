@@ -11,7 +11,7 @@
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <!--
                 The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.
+                Place your content here. https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.menuflyout?view=winrt-19041
             -->
         </Grid>
     </Grid>

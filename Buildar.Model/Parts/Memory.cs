@@ -6,19 +6,16 @@ namespace Buildar.Model.Parts
 {
     public class Memory
     {
-        public string MemoryId { get; set; }
+        public int Id { get; set; }
 
-        public string MemoryModel { get; set; }
+        public string Model { get; set; }
 
-        public string MemoryMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int RMemorySticks { get; set; }
+        public int Price { get; set; }
 
-        public int MemoryPrice { get; set; }
+        public int Speed { get; set; }
 
-        public string MemoryType { get; set; }
-
-        public int MemorySpeed { get; set; }
-        public int MemoryEstWattage { get; set; }
+        public int EstWatt { get; set; }
     }
 }

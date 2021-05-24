@@ -6,25 +6,20 @@ namespace Buildar.Model.Parts
 {
     public class Cpu
     {
-        public string CpuId { get; set; }
+        public int Id { get; set; }
 
-        public string CpuModel { get; set; }
+        public string Model { get; set; }
 
-        public string CpuMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int CpuPrice { get; set; }
+        public int Price { get; set; }
 
-        public int CpuCores { get; set; }
+        public int Cores { get; set; }
 
-        public int CpuThreads { get; set; }
+        public int Threads { get; set; }
 
-        public int CpuClockMin { get; set; }
+        public string Socket { get; set; }
 
-        public int CpuClockMax { get; set; }
-
-        public string CpuSocket { get; set; }
-
-        public int CpuReleaseDate { get; set; }
-        public int CpuEstWattage { get; set; }
+        public int EstWatt { get; set; }
     }
 }

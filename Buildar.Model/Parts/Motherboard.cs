@@ -6,19 +6,18 @@ namespace Buildar.Model.Parts
 {
     public class Motherboard
     {
-        public string MotherboardId { get; set; }
+        public int Id { get; set; }
 
-        public string MotherboardModel { get; set; }
+        public string Model { get; set; }
 
-        public string MotherboardMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int MotherboardPrice { get; set; }
+        public int Price { get; set; }
 
-        public string MotherboardSocket { get; set; }
+        public string Socket { get; set; }
 
-        public string MotherboardChipset { get; set; }
+        public string Chipset { get; set; }
 
-        public string MotherboardMaxSize { get; set; }
-        public int MotherboardEstWattage { get; set; }
+        public int EstWatt { get; set; }
     }
 }

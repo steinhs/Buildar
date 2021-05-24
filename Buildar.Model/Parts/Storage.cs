@@ -6,17 +6,18 @@ namespace Buildar.Model.Parts
 {
     public class Storage
     {
-        public string StorageId { get; set; }
+        public int Id { get; set; }
 
-        public string StorageModel { get; set; }
+        public string Model { get; set; }
 
-        public string StorageMaker { get; set; }
+        public string Maker { get; set; }
 
-        public int StoragePrice { get; set; }
+        public int Price { get; set; }
 
-        public int StorageSize { get; set; }
+        public int Size { get; set; }
 
-        public string StorageType { get; set; }
-        public int StorageEstWattage { get; set; }
+        public string Type { get; set; }
+
+        public int EstWatt { get; set; }
     }
 }
