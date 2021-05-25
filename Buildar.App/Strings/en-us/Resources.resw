@@ -130,15 +130,15 @@
     <comment>Navigation view item name for Main</comment>
   </data>
   <data name="Shell_CustomBuild.Content" xml:space="preserve">
-    <value>CustomBuild</value>
+    <value>Custom Build</value>
     <comment>Navigation view item name for CustomBuild</comment>
   </data>
   <data name="Shell_HighEnd.Content" xml:space="preserve">
-    <value>HighEnd</value>
+    <value>High End</value>
     <comment>Navigation view item name for HighEnd</comment>
   </data>
   <data name="Shell_MidRange.Content" xml:space="preserve">
-    <value>MidRange</value>
+    <value>Mid Range</value>
     <comment>Navigation view item name for MidRange</comment>
   </data>
   <data name="Shell_Budget.Content" xml:space="preserve">

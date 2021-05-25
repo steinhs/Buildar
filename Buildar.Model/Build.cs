@@ -8,7 +8,6 @@ namespace Buildar.Model
     public class Build
     {
         public int Id { get; set; }
-
         public string BuildName { get; set; }
 
         public int CpuId { get; set; }

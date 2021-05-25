@@ -20,6 +20,13 @@ namespace Buildar.App.Views
 
         private async void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
             await ViewModel.LoadCpusAsync();
+            await ViewModel.LoadGpusAsync();
+            await ViewModel.LoadCasesAsync();
+            await ViewModel.LoadCoolersAsync();
+            await ViewModel.LoadStoragesAsync();
+            //await ViewModel.LoadMemorysAsync();
+            await ViewModel.LoadMotherboardsAsync();
+            await ViewModel.LoadPsusAsync();
         }
 
 
@@ -27,14 +34,14 @@ namespace Buildar.App.Views
 
 
 
-        /*public class BuildPart
+        public class Parts
         {
             public string Part { get; set; }
             public override string ToString()
             {
                 return Part;
             }
-        }*/
+        }
 
     }
 }

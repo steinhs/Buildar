@@ -3,27 +3,25 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Web.Http;
 
 namespace Buildar.App.DataAccess
 {
-    public class Cpus
+    public class Storages
     {
         readonly HttpClient _httpClient = new HttpClient();
         // TODO: Make sure to change the port number to the port your API is using
-        static readonly Uri cpusBaseUri = new Uri("http://localhost:45283/api/Cpus");
+        static readonly Uri storagesBaseUri = new Uri("http://localhost:45283/api/Storages");
 
-        public async Task<Cpu[]> GetCpusAsync()
+        public async Task<Storage[]> GetStoragesAsync()
         {
-            HttpResponseMessage result = await _httpClient.GetAsync(cpusBaseUri);
+            HttpResponseMessage result = await _httpClient.GetAsync(storagesBaseUri);
             string json = await result.Content.ReadAsStringAsync();
-            Cpu[] cpus = JsonConvert.DeserializeObject<Cpu[]>(json);
+            Storage[] storages = JsonConvert.DeserializeObject<Storage[]>(json);
 
-            return cpus;
+            return storages;
         }
-
-
     }
 }

@@ -17,5 +17,10 @@ namespace Buildar.Model.Parts
 
         public string ImgURL { get; set; }
 
+        public string FullName => $"{Maker} {Model}";
+
+        public string CriticalInformation => $"{Maker} {Model}  ({Price},-)";
+
+        public string Parttype => $"Case";
     }
 }

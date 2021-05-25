@@ -32,12 +32,13 @@
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/release/docs/UWP/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-            <winui:NavigationViewItem x:Uid="Shell_Main" Icon="Document" helpers:NavHelper.NavigateTo="views:MainPage" />
-            <winui:NavigationViewItem x:Uid="Shell_CustomBuild" Icon="Document" helpers:NavHelper.NavigateTo="views:CustomBuildPage" />
-            <winui:NavigationViewItem x:Uid="Shell_HighEnd" Icon="Document" helpers:NavHelper.NavigateTo="views:HighEndPage" />
-            <winui:NavigationViewItem x:Uid="Shell_MidRange" Icon="Document" helpers:NavHelper.NavigateTo="views:MidRangePage" />
-            <winui:NavigationViewItem x:Uid="Shell_Budget" Icon="Document" helpers:NavHelper.NavigateTo="views:BudgetPage" />
-            <winui:NavigationViewItem x:Uid="Shell_Community" Icon="Document" helpers:NavHelper.NavigateTo="views:CommunityPage" />
+            <winui:NavigationViewItem x:Uid="Shell_Main" Icon="Home" helpers:NavHelper.NavigateTo="views:MainPage"/>
+            <winui:NavigationViewItem x:Uid="Shell_CustomBuild" Icon="Repair" helpers:NavHelper.NavigateTo="views:CustomBuildPage"/>
+            <winui:NavigationViewItemSeparator></winui:NavigationViewItemSeparator>
+            <winui:NavigationViewItem x:Uid="Shell_HighEnd" Icon="Favorite" helpers:NavHelper.NavigateTo="views:HighEndPage" />
+            <winui:NavigationViewItem x:Uid="Shell_MidRange" Icon="OutlineStar" helpers:NavHelper.NavigateTo="views:MidRangePage" />
+            <winui:NavigationViewItem x:Uid="Shell_Budget" Icon="Tag" helpers:NavHelper.NavigateTo="views:BudgetPage" />
+            <winui:NavigationViewItem x:Uid="Shell_Community" Icon="People" helpers:NavHelper.NavigateTo="views:CommunityPage" />
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior

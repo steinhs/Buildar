@@ -23,9 +23,15 @@ namespace Buildar.Model.Parts
         public int EstWatt { get; set; }
         public string ImgURL { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Model}, {Maker}, {Price},-";
-        }
+        public string FullModelMaker => $"{Maker}  {Model}";
+
+        public string FullName => $"{Maker} {Model}";
+
+        public string PriceKr => $"{Price},-";
+
+        public string Specs => $"{Price},-  Cores: {Cores}  Socket: {Socket}";
+        public string CriticalInformation => $"{Maker} {Model}  ({Price},-)";
+        public string Parttype => $"Processor";
+
     }
 }

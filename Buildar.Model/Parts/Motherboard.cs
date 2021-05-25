@@ -20,5 +20,10 @@ namespace Buildar.Model.Parts
 
         public int EstWatt { get; set; }
         public string ImgURL { get; set; }
+
+        public string FullName => $"{Maker} {Model}";
+        public string CriticalInformation => $"{Maker} {Model}  ({Price},-)";
+        public string Parttype => $"Motherboard";
+
     }
 }

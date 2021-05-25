@@ -8,6 +8,7 @@
     xmlns:models="using:Buildar.App.ViewModels"
     xmlns:model="using:Buildar.Model.Parts"
     Style="{StaticResource PageStyle}"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
     <!-- TODO: Make "MenuFlyout" (or similiar) for each gridbox which shows every
     computerpart and can be selected and will replace the current part -->
@@ -17,9 +18,10 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="model:Cpu" >
                         <Grid Height="200" Width="320" AutomationProperties.Name="{x:Bind Model}" Margin="5">
-                            <Image Source="{x:Bind ImgURL}" Stretch="UniformToFill"/>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Background="{ThemeResource SystemAltHighColor}" Padding="12" Opacity="0.9">
-                                <TextBlock TextAlignment="Center" FontSize="40" Text="{x:Bind Price}"/>
+                            <Image Source="{x:Bind ImgURL}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Background="{ThemeResource SystemAltHighColor}" Padding="7" Opacity="0.8">
+                                <TextBlock TextAlignment="Center" FontSize="30" Text="{x:Bind FullModelMaker}"/>
+                                <TextBlock TextAlignment="Center" FontSize="20" Text="{x:Bind Specs}"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
@@ -29,14 +31,20 @@
                         <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
-            </GridView> -->
-            <ListView x:Name="lvCpus" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:Name="DataTemp" x:DataType="model:Cpu">
-                        <TextBlock Text="{x:Bind Model}" FontSize="40" Foreground="White"></TextBlock>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            </GridView>-->
+
+            <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ComboBox x:Name="cbCpu" Header="Processor" PlaceholderText="Select processor" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbGpu" Header="Graphics Card" PlaceholderText="Select graphics card" ItemsSource="{x:Bind ViewModel.Gpus, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbPsu" Header="Powersupply" PlaceholderText="Select powersupply" ItemsSource="{x:Bind ViewModel.Psus, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbCase" Header="Case" PlaceholderText="Select case" ItemsSource="{x:Bind ViewModel.Cases, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbCooler" Header="Cooler" PlaceholderText="Select cooler" ItemsSource="{x:Bind ViewModel.Coolers, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbStorage" Header="Storage" PlaceholderText="Select storage" ItemsSource="{x:Bind ViewModel.Storages, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbMotherboard" Header="Motherboard" PlaceholderText="Select motherboard" ItemsSource="{x:Bind ViewModel.Motherboards, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <ComboBox x:Name="cbMemory" Header="Memory" PlaceholderText="Select memory" ItemsSource="{x:Bind ViewModel.Memorys, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+            </StackPanel>
+
         </Grid>
     </Grid>
+    
 </Page>

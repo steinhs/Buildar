@@ -3,27 +3,25 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Web.Http;
 
 namespace Buildar.App.DataAccess
 {
-    public class Cpus
+    public class Motherboards
     {
         readonly HttpClient _httpClient = new HttpClient();
         // TODO: Make sure to change the port number to the port your API is using
-        static readonly Uri cpusBaseUri = new Uri("http://localhost:45283/api/Cpus");
+        static readonly Uri motherboardsBaseUri = new Uri("http://localhost:45283/api/Motherboards");
 
-        public async Task<Cpu[]> GetCpusAsync()
+        public async Task<Motherboard[]> GetMotherboardsAsync()
         {
-            HttpResponseMessage result = await _httpClient.GetAsync(cpusBaseUri);
+            HttpResponseMessage result = await _httpClient.GetAsync(motherboardsBaseUri);
             string json = await result.Content.ReadAsStringAsync();
-            Cpu[] cpus = JsonConvert.DeserializeObject<Cpu[]>(json);
+            Motherboard[] motherboards = JsonConvert.DeserializeObject<Motherboard[]>(json);
 
-            return cpus;
+            return motherboards;
         }
-
-
     }
 }
