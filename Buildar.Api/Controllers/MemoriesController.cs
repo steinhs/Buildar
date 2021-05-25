@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMemory(string id, Memory memory)
+        public async Task<IActionResult> PutMemory(int id, Memory memory)
         {
-            if (id != memory.MemoryId)
+            if (id != memory.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (MemoryExists(memory.MemoryId))
+                if (MemoryExists(memory.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetMemory", new { id = memory.MemoryId }, memory);
+            return CreatedAtAction("GetMemory", new { id = memory.Id }, memory);
         }
 
         // DELETE: api/Memories/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return memory;
         }
 
-        private bool MemoryExists(string id)
+        private bool MemoryExists(int id)
         {
-            return _context.Memorys.Any(e => e.MemoryId == id);
+            return _context.Memorys.Any(e => e.Id.Equals(id));
         }
     }
 }

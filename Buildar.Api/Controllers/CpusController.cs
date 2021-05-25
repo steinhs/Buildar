@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCpu(string id, Cpu cpu)
+        public async Task<IActionResult> PutCpu(int id, Cpu cpu)
         {
-            if (id != cpu.CpuId)
+            if (id != cpu.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (CpuExists(cpu.CpuId))
+                if (CpuExists(cpu.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetCpu", new { id = cpu.CpuId }, cpu);
+            return CreatedAtAction("GetCpu", new { id = cpu.Id }, cpu);
         }
 
         // DELETE: api/Cpus/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return cpu;
         }
 
-        private bool CpuExists(string id)
+        private bool CpuExists(int id)
         {
-            return _context.Cpus.Any(e => e.CpuId == id);
+            return _context.Cpus.Any(e => e.Id == id);
         }
     }
 }

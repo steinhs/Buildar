@@ -15,5 +15,7 @@ namespace Buildar.Model.Parts
 
         public int Price { get; set; }
 
+        public string ImgURL { get; set; }
+
     }
 }

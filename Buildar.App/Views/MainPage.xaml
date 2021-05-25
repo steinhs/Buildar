@@ -28,7 +28,10 @@
                     <x:String>Mid Range</x:String>
                     <x:String>Budget Build</x:String>
                     <x:String>Community</x:String>
-                </GridView.Items> 
+                </GridView.Items>
+
+                
+                
             </GridView>
         </Grid>
     </Grid>

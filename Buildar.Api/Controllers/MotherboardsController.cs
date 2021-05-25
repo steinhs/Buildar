@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMotherboard(string id, Motherboard motherboard)
+        public async Task<IActionResult> PutMotherboard(int id, Motherboard motherboard)
         {
-            if (id != motherboard.MotherboardId)
+            if (id != motherboard.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (MotherboardExists(motherboard.MotherboardId))
+                if (MotherboardExists(motherboard.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetMotherboard", new { id = motherboard.MotherboardId }, motherboard);
+            return CreatedAtAction("GetMotherboard", new { id = motherboard.Id }, motherboard);
         }
 
         // DELETE: api/Motherboards/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return motherboard;
         }
 
-        private bool MotherboardExists(string id)
+        private bool MotherboardExists(int id)
         {
-            return _context.Motherboards.Any(e => e.MotherboardId == id);
+            return _context.Motherboards.Any(e => e.Id.Equals(id));
         }
     }
 }

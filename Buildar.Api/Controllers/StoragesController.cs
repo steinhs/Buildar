@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStorage(string id, Storage storage)
+        public async Task<IActionResult> PutStorage(int id, Storage storage)
         {
-            if (id != storage.StorageId)
+            if (id != storage.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (StorageExists(storage.StorageId))
+                if (StorageExists(storage.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetStorage", new { id = storage.StorageId }, storage);
+            return CreatedAtAction("GetStorage", new { id = storage.Id }, storage);
         }
 
         // DELETE: api/Storages/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return storage;
         }
 
-        private bool StorageExists(string id)
+        private bool StorageExists(int id)
         {
-            return _context.Storages.Any(e => e.StorageId == id);
+            return _context.Storages.Any(e => e.Id == id);
         }
     }
 }

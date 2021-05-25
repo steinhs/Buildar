@@ -13,7 +13,7 @@ namespace Buildar.App.DataAccess
     {
         readonly HttpClient _httpClient = new HttpClient();
         // TODO: Make sure to change the port number to the port your API is using
-        static readonly Uri cpusBaseUri = new Uri("https://localhost:44368/api/Cpus");
+        static readonly Uri cpusBaseUri = new Uri("https://localhost:44367/api/Cpus");
 
         public async Task<Cpu[]> GetCpusAsync()
         {
@@ -33,7 +33,7 @@ namespace Buildar.App.DataAccess
             {
                 json = await result.Content.ReadAsStringAsync();
                 var returnedCpu = JsonConvert.DeserializeObject<Cpu>(json);
-                cpu.CpuId = returnedCpu.CpuId;
+                cpu.Id = returnedCpu.Id;
 
                 return true;
             }
@@ -43,8 +43,10 @@ namespace Buildar.App.DataAccess
 
         internal async Task<bool> DeleteCpuAsync(Cpu cpu)
         {
-            HttpResponseMessage result = await _httpClient.DeleteAsync(new Uri(cpusBaseUri, "cpus/" + cpu.CpuId.ToString()));
+            HttpResponseMessage result = await _httpClient.DeleteAsync(new Uri(cpusBaseUri, "cpus/" + cpu.Id.ToString()));
             return result.IsSuccessStatusCode;
         }
+
+
     }
 }

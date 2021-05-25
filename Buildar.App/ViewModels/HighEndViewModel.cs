@@ -17,4 +17,65 @@ namespace Buildar.App.ViewModels
             this.buildTemps.Add(new BuildTemp() { BuildName = "Extreme Cashgrabber", Cpu = "Ryzen 7 3700", Gpu = "RTX 3070", ImageUrl = "https://itstud.hiof.no/~steinhs/subjects/netImgs/bud3.jpg" });
         }
     }
+
+    public class BuildTemp
+    {
+        public string BuildName { get; set; }
+        public string Cpu { get; set; }
+        public string Gpu { get; set; }
+
+        public int Price { get; set; }
+        public string ImageUrl { get; set; }
+        public string Buildname
+        {
+            get
+            {
+                return $"{this.BuildName}";
+            }
+        }
+
+        public string BuildInfo
+        {
+            get
+            {
+                return $"{this.Cpu} & {this.Gpu}";
+            }
+        }
+
+        public string BuildPrice
+        {
+            get
+            {
+                return $"{this.Price}";
+            }
+        }
+
+        public string FullImageUrl
+        {
+            get
+            {
+                return $"{this.ImageUrl}";
+            }
+        }
+    }
+
+    public class BuildPart
+    {
+        public string Part { get; set; }
+        public string PartImage { get; set; }
+        public string PartNameSum
+        {
+            get
+            {
+                return $"{this.Part}";
+            }
+        }
+        public string PartImageUrl
+        {
+            get
+            {
+                return $"{this.PartImage}";
+            }
+        }
+    }
 }

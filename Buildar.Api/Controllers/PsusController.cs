@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPsu(string id, Psu psu)
+        public async Task<IActionResult> PutPsu(int id, Psu psu)
         {
-            if (id != psu.PsuId)
+            if (!id.Equals(psu.Id))
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (PsuExists(psu.PsuId))
+                if (PsuExists(psu.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetPsu", new { id = psu.PsuId }, psu);
+            return CreatedAtAction("GetPsu", new { id = psu.Id }, psu);
         }
 
         // DELETE: api/Psus/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return psu;
         }
 
-        private bool PsuExists(string id)
+        private bool PsuExists(int id)
         {
-            return _context.Psus.Any(e => e.PsuId == id);
+            return _context.Psus.Any(e => e.Id.Equals(id));
         }
     }
 }

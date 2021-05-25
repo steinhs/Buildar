@@ -1,37 +1,40 @@
 ﻿using Buildar.App.ViewModels;
+using Buildar.Model.Parts;
+using Microsoft.Data.SqlClient;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+using System.Diagnostics;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 namespace Buildar.App.Views
 {
     public sealed partial class CustomBuildPage : Page
     {
+        //Gets methods and data from CustomBuildViewModel ViewModel
         public CustomBuildViewModel ViewModel { get; } = new CustomBuildViewModel();
+
 
         public CustomBuildPage()
         {
             InitializeComponent();
         }
-        public class BuildPart
+
+        private async void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e) {
+            await ViewModel.LoadCpusAsync();
+        }
+
+
+
+
+
+
+        /*public class BuildPart
         {
             public string Part { get; set; }
-
             public override string ToString()
             {
                 return Part;
             }
-        }
+        }*/
+
     }
 }

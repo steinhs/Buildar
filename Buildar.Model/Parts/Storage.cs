@@ -19,5 +19,6 @@ namespace Buildar.Model.Parts
         public string Type { get; set; }
 
         public int EstWatt { get; set; }
+        public string ImgURL { get; set; }
     }
 }

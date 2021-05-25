@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCooler(string id, Cooler cooler)
+        public async Task<IActionResult> PutCooler(int id, Cooler cooler)
         {
-            if (id != cooler.CoolerId)
+            if (id != cooler.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (CoolerExists(cooler.CoolerId))
+                if (CoolerExists(cooler.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetCooler", new { id = cooler.CoolerId }, cooler);
+            return CreatedAtAction("GetCooler", new { id = cooler.Id }, cooler);
         }
 
         // DELETE: api/Coolers/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return cooler;
         }
 
-        private bool CoolerExists(string id)
+        private bool CoolerExists(int id)
         {
-            return _context.Coolers.Any(e => e.CoolerId == id);
+            return _context.Coolers.Any(e => e.Id == id);
         }
     }
 }

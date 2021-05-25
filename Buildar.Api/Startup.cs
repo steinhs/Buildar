@@ -30,8 +30,14 @@ namespace Buildar.Api
             services.AddControllers();
 
             // Connection to db for EF
-            var connection = @"Server=DESKTOP-SHS\\SQLEXPRESS;Database=Buildar.Database;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<BuildarContext>(options => options.UseSqlServer(connection));
+            //var connection = @"Server=DESKTOP-SHS\\SQLEXPRESS;Database=Buildar.Database;Trusted_Connection=True;ConnectRetryCount=0";
+            //services.AddDbContext<BuildarContext>(options => options.UseSqlServer(connection));
+
+            //Using connectionstring from appsettings.json in Buildar.Api
+            services.AddDbContext<BuildarContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("BuildarContext")));
+
+            //services.AddDatabaseDeveloperPageExceptionFilter();
 
         }
 

@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCase(string id, Case @case)
+        public async Task<IActionResult> PutCase(int id, Case @case)
         {
-            if (id != @case.CaseId)
+            if (id != @case.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (CaseExists(@case.CaseId))
+                if (CaseExists(@case.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetCase", new { id = @case.CaseId }, @case);
+            return CreatedAtAction("GetCase", new { id = @case.Id }, @case);
         }
 
         // DELETE: api/Cases/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return @case;
         }
 
-        private bool CaseExists(string id)
+        private bool CaseExists(int id)
         {
-            return _context.Cases.Any(e => e.CaseId == id);
+            return _context.Cases.Any(e => e.Id == id);
         }
     }
 }

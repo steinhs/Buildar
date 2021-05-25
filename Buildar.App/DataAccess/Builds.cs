@@ -33,7 +33,7 @@ namespace Buildar.App.DataAccess
             {
                 json = await result.Content.ReadAsStringAsync();
                 var returnedBuild = JsonConvert.DeserializeObject<Build>(json);
-                build.BuildId = returnedBuild.BuildId;
+                build.Id = returnedBuild.Id;
 
                 return true;
             }
@@ -45,7 +45,7 @@ namespace Buildar.App.DataAccess
 
         internal async Task<bool> DeleteBuildAsync(Build build)
         {
-            HttpResponseMessage result = await _httpClient.DeleteAsync(new Uri(buildsBaseUri, "builds/" + build.BuildId.ToString()));
+            HttpResponseMessage result = await _httpClient.DeleteAsync(new Uri(buildsBaseUri, "builds/" + build.Id.ToString()));
             return result.IsSuccessStatusCode;
         }
 

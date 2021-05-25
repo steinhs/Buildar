@@ -6,19 +6,20 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:Buildar.App.ViewModels"
     xmlns:models="using:Buildar.App.ViewModels"
+    xmlns:model="using:Buildar.Model.Parts"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
     <!-- TODO: Make "MenuFlyout" (or similiar) for each gridbox which shows every
     computerpart and can be selected and will replace the current part -->
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid>
-            <GridView ItemsSource="{x:Bind ViewModel.Buildparts, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <!-- <GridView x:Name="gvCpus" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <GridView.ItemTemplate>
-                    <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="local:BuildPart" >
-                        <Grid Height="200" Width="320" AutomationProperties.Name="{x:Bind Part}" Margin="5">
-                            <Image Source="{x:Bind PartImageUrl}" Stretch="UniformToFill"/>
+                    <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="model:Cpu" >
+                        <Grid Height="200" Width="320" AutomationProperties.Name="{x:Bind Model}" Margin="5">
+                            <Image Source="{x:Bind ImgURL}" Stretch="UniformToFill"/>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Background="{ThemeResource SystemAltHighColor}" Padding="12" Opacity="0.9">
-                                <TextBlock TextAlignment="Center" FontSize="40" Text="{x:Bind PartNameSum}"/>
+                                <TextBlock TextAlignment="Center" FontSize="40" Text="{x:Bind Price}"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
@@ -28,7 +29,14 @@
                         <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
-            </GridView>
+            </GridView> -->
+            <ListView x:Name="lvCpus" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:Name="DataTemp" x:DataType="model:Cpu">
+                        <TextBlock Text="{x:Bind Model}" FontSize="40" Foreground="White"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 </Page>

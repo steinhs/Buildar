@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBuild(string id, Build build)
+        public async Task<IActionResult> PutBuild(int id, Build build)
         {
-            if (id != build.BuildId)
+            if (id != build.Id)
             {
                 return BadRequest();
             }
@@ -74,6 +74,11 @@ namespace Buildar.Api
             return NoContent();
         }
 
+        private bool BuildExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         // POST: api/Builds
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -87,7 +92,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (BuildExists(build.BuildId))
+                if (BuildExists(build.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +102,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetBuild", new { id = build.BuildId }, build);
+            return CreatedAtAction("GetBuild", new { id = build.Id }, build);
         }
 
         // DELETE: api/Builds/5
@@ -118,7 +123,7 @@ namespace Buildar.Api
 
         private bool BuildExists(string id)
         {
-            return _context.Builds.Any(e => e.BuildId == id);
+            return _context.Builds.Any(e => e.Id.Equals(id));
         }
     }
 }

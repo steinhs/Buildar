@@ -46,9 +46,9 @@ namespace Buildar.Api
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGpu(string id, Gpu gpu)
+        public async Task<IActionResult> PutGpu(int id, Gpu gpu)
         {
-            if (id != gpu.GpuId)
+            if (id != gpu.Id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace Buildar.Api
             }
             catch (DbUpdateException)
             {
-                if (GpuExists(gpu.GpuId))
+                if (GpuExists(gpu.Id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace Buildar.Api
                 }
             }
 
-            return CreatedAtAction("GetGpu", new { id = gpu.GpuId }, gpu);
+            return CreatedAtAction("GetGpu", new { id = gpu.Id }, gpu);
         }
 
         // DELETE: api/Gpus/5
@@ -116,9 +116,9 @@ namespace Buildar.Api
             return gpu;
         }
 
-        private bool GpuExists(string id)
+        private bool GpuExists(int id)
         {
-            return _context.Gpus.Any(e => e.GpuId == id);
+            return _context.Gpus.Any(e => e.Id == id);
         }
     }
 }
