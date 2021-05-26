@@ -42,10 +42,12 @@ namespace Buildar.App.ViewModels
         public ObservableCollection<Storage> Storages { get; set; } = new ObservableCollection<Storage>();
         public readonly Storages storagesDataAccess = new Storages();
 
+        public ObservableCollection<Build> Builds { get; set; } = new ObservableCollection<Build>();
+        public readonly Builds buildsDataAccess = new Builds();
 
         public CustomBuildViewModel()
         {
-            
+           
             this.parts.Add(new Parts() { Part = "CPU", PartImage= "https://itstud.hiof.no/~steinhs/subjects/netImgs/cpu.jpg" });
             this.parts.Add(new Parts() { Part = "GPU", PartImage= "https://itstud.hiof.no/~steinhs/subjects/netImgs/gpu.jpg" });
             this.parts.Add(new Parts() { Part = "MEMORY", PartImage= "https://itstud.hiof.no/~steinhs/subjects/netImgs/memory.jpg" });
@@ -114,6 +116,7 @@ namespace Buildar.App.ViewModels
                 Storages.Add(e);
         }
 
+
     }
 
     public class Parts
@@ -121,4 +124,6 @@ namespace Buildar.App.ViewModels
         public string Part { get; set; }
         public string PartImage { get; set; }
     }
+
+
 }

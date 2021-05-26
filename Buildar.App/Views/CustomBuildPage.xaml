@@ -14,7 +14,8 @@
     computerpart and can be selected and will replace the current part -->
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!-- <GridView x:Name="gvCpus" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- TEMP GRIDVIEW
+            <GridView x:Name="gvCpus" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <GridView.ItemTemplate>
                     <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="model:Cpu" >
                         <Grid Height="200" Width="320" AutomationProperties.Name="{x:Bind Model}" Margin="5">
@@ -34,14 +35,38 @@
             </GridView>-->
 
             <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <ComboBox x:Name="cbCpu" Header="Processor" PlaceholderText="Select processor" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbGpu" Header="Graphics Card" PlaceholderText="Select graphics card" ItemsSource="{x:Bind ViewModel.Gpus, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbPsu" Header="Powersupply" PlaceholderText="Select powersupply" ItemsSource="{x:Bind ViewModel.Psus, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbCase" Header="Case" PlaceholderText="Select case" ItemsSource="{x:Bind ViewModel.Cases, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbCooler" Header="Cooler" PlaceholderText="Select cooler" ItemsSource="{x:Bind ViewModel.Coolers, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbStorage" Header="Storage" PlaceholderText="Select storage" ItemsSource="{x:Bind ViewModel.Storages, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbMotherboard" Header="Motherboard" PlaceholderText="Select motherboard" ItemsSource="{x:Bind ViewModel.Motherboards, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
-                <ComboBox x:Name="cbMemory" Header="Memory" PlaceholderText="Select memory" ItemsSource="{x:Bind ViewModel.Memorys, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20"/>
+                <StackPanel  Orientation="Horizontal" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWith="Commands" RelativePanel.AlignBottomWith="Commands">
+                    <TextBlock VerticalAlignment="Center" Text="Build Name:" />
+                    <TextBox x:Name="buildName" PlaceholderText="Enter build name"/>
+                </StackPanel>
+
+                <CommandBar x:Name="Commands" RelativePanel.AlignRightWithPanel="True">
+                    <AppBarButton  x:Name="btnAdd" Content="Add Build" Icon="Save" Command="{x:Bind AddCommand}" CommandParameter="{Binding ElementName=txtFullName, Path=Text}"/>
+                </CommandBar>
+
+                <ComboBox x:Name="cbCpu" Header="Processor" PlaceholderText="Select processor" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbCpu_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbGpu" Header="Graphics Card" PlaceholderText="Select graphics card" ItemsSource="{x:Bind ViewModel.Gpus, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbGpu_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbPsu" Header="Powersupply" PlaceholderText="Select powersupply" ItemsSource="{x:Bind ViewModel.Psus, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbPsu_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbCase" Header="Case" PlaceholderText="Select case" ItemsSource="{x:Bind ViewModel.Cases, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbCase_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbCooler" Header="Cooler" PlaceholderText="Select cooler" ItemsSource="{x:Bind ViewModel.Coolers, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbCooler_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbStorage" Header="Storage" PlaceholderText="Select storage" ItemsSource="{x:Bind ViewModel.Storages, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbStorage_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbMotherboard" Header="Motherboard" PlaceholderText="Select motherboard" ItemsSource="{x:Bind ViewModel.Motherboards, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbMotherboard_SelectionChanged">
+                </ComboBox>
+
+                <ComboBox x:Name="cbMemory" Header="Memory" PlaceholderText="Select memory" ItemsSource="{x:Bind ViewModel.Memorys, Mode=OneWay}"  DisplayMemberPath="CriticalInformation" SelectedValuePath="Maker" Margin="20" SelectionChanged="cbMemory_SelectionChanged">
+                </ComboBox>
             </StackPanel>
 
         </Grid>

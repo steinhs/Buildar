@@ -12,23 +12,23 @@ namespace Buildar.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MemoriesController : ControllerBase
+    public class MemorysController : ControllerBase
     {
         private readonly BuildarContext _context;
 
-        public MemoriesController(BuildarContext context)
+        public MemorysController(BuildarContext context)
         {
             _context = context;
         }
 
-        // GET: api/Memories
+        // GET: api/Memorys
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Memory>>> GetMemorys()
         {
             return await _context.Memorys.ToListAsync();
         }
 
-        // GET: api/Memories/5
+        // GET: api/Memorys/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Memory>> GetMemory(string id)
         {
@@ -42,7 +42,7 @@ namespace Buildar.Api
             return memory;
         }
 
-        // PUT: api/Memories/5
+        // PUT: api/Memorys/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -74,7 +74,7 @@ namespace Buildar.Api
             return NoContent();
         }
 
-        // POST: api/Memories
+        // POST: api/Memorys
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -100,7 +100,7 @@ namespace Buildar.Api
             return CreatedAtAction("GetMemory", new { id = memory.Id }, memory);
         }
 
-        // DELETE: api/Memories/5
+        // DELETE: api/Memorys/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Memory>> DeleteMemory(string id)
         {

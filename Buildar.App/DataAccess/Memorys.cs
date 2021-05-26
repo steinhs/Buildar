@@ -13,16 +13,17 @@ namespace Buildar.App.DataAccess
     {
         readonly HttpClient _httpClient = new HttpClient();
         // TODO: Make sure to change the port number to the port your API is using
-        static readonly Uri memorysBaseUri = new Uri("http://localhost:45283/api/Memorys");
+        static readonly Uri MemorysBaseUri = new Uri("http://localhost:45283/api/Memorys");
 
         public async Task<Memory[]> GetMemorysAsync()
         {
-            HttpResponseMessage result = await _httpClient.GetAsync(memorysBaseUri);
+            HttpResponseMessage result = await _httpClient.GetAsync(MemorysBaseUri);
             string json = await result.Content.ReadAsStringAsync();
-            Memory[] memorys = JsonConvert.DeserializeObject<Memory[]>(json);
+            Memory[] Memorys = JsonConvert.DeserializeObject<Memory[]>(json);
 
-            return memorys;
+            return Memorys;
         }
+
 
     }
 }

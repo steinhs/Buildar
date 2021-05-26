@@ -13,7 +13,6 @@ namespace Buildar.DataAccess
         public BuildarContext(DbContextOptions<BuildarContext> options) 
             : base(options) { }
 
-
         public DbSet<User> Users { get; set; }
         public DbSet<Case> Cases { get; set; }
         public DbSet<Cooler> Coolers { get; set; }
