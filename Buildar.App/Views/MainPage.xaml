@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
@@ -23,15 +24,13 @@
                 <!-- TEMP >> <GridViewItem x:Name="TempItem" Background="LightGray" Foreground="Black" Height="200" Width="200" Margin="10" Content="Start build" FontSize="30" Tag="TempItem">
                 </GridViewItem> -->
                 <GridView.Items>
-                    <x:String>Start a new build</x:String>
+                    <x:String>Build Your Own Computer</x:String>
                     <x:String>High End</x:String>
                     <x:String>Mid Range</x:String>
                     <x:String>Budget Build</x:String>
                     <x:String>Community</x:String>
+                    <x:String>My Builds</x:String>
                 </GridView.Items>
-
-                
-                
             </GridView>
         </Grid>
     </Grid>

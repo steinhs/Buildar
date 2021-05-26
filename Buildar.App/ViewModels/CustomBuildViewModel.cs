@@ -14,9 +14,6 @@ namespace Buildar.App.ViewModels
     public class CustomBuildViewModel : Observable
     {
 
-        private ObservableCollection<Parts> parts = new ObservableCollection<Parts>();
-        public ObservableCollection<Parts> Parts { get { return this.parts; } }
-
         public ObservableCollection<Cpu> Cpus { get; set; } = new ObservableCollection<Cpu>();
         public readonly Cpus cpusDataAccess = new Cpus();
 
@@ -48,16 +45,7 @@ namespace Buildar.App.ViewModels
         public CustomBuildViewModel()
         {
            
-            this.parts.Add(new Parts() { Part = "CPU", PartImage= "https://itstud.hiof.no/~steinhs/subjects/netImgs/cpu.jpg" });
-            this.parts.Add(new Parts() { Part = "GPU", PartImage= "https://itstud.hiof.no/~steinhs/subjects/netImgs/gpu.jpg" });
-            this.parts.Add(new Parts() { Part = "MEMORY", PartImage= "https://itstud.hiof.no/~steinhs/subjects/netImgs/memory.jpg" });
-            this.parts.Add(new Parts() { Part = "MOTHERBOARD", PartImage = "https://itstud.hiof.no/~steinhs/subjects/netImgs/motherboard.jpg" });
-            this.parts.Add(new Parts() { Part = "STORAGE", PartImage = "https://itstud.hiof.no/~steinhs/subjects/netImgs/ssd.jpg" });
-            this.parts.Add(new Parts() { Part = "POWERSUPPLY", PartImage = "https://itstud.hiof.no/~steinhs/subjects/netImgs/psu2.jpg" });
-            this.parts.Add(new Parts() { Part = "CASE", PartImage = "https://itstud.hiof.no/~steinhs/subjects/netImgs/case.jpg" });
-            this.parts.Add(new Parts() { Part = "COOLER",  PartImage = "https://itstud.hiof.no/~steinhs/subjects/netImgs/cooler.jpg" });
         }
-
 
         internal async Task LoadCpusAsync()
         {
@@ -115,15 +103,14 @@ namespace Buildar.App.ViewModels
             foreach (Storage e in storages)
                 Storages.Add(e);
         }
-
-
+        internal async Task LoadBuildsAsync()
+        {
+            var builds = await buildsDataAccess.GetBuildsAsync();
+            foreach (Build build in builds)
+                Builds.Add(build);
+        }
     }
 
-    public class Parts
-    {
-        public string Part { get; set; }
-        public string PartImage { get; set; }
-    }
 
 
 }

@@ -21,7 +21,7 @@ namespace Buildar.App.Views
             switch (e.ClickedItem.ToString())
             {
 
-                case "Start a new build":
+                case "Build Your Own Computer":
                     this.Frame.Navigate(typeof(CustomBuildPage));
                     break;
 
@@ -40,8 +40,15 @@ namespace Buildar.App.Views
                 case "Community":
                     this.Frame.Navigate(typeof(CommunityPage));
                     break;
+                case "My Builds":
+                    this.Frame.Navigate(typeof(MyBuildsPage));
+                    break;
             }
 
+        }
+        private async void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await ViewModel.LoadBuildsAsync();
         }
     }
 }

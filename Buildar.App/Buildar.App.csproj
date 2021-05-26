@@ -158,6 +158,7 @@
     <Compile Include="ViewModels\HighEndViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MidRangeViewModel.cs" />
+    <Compile Include="ViewModels\MyBuildsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\BudgetPage.xaml.cs">
       <DependentUpon>BudgetPage.xaml</DependentUpon>
@@ -176,6 +177,9 @@
     </Compile>
     <Compile Include="Views\MidRangePage.xaml.cs">
       <DependentUpon>MidRangePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyBuildsPage.xaml.cs">
+      <DependentUpon>MyBuildsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -229,6 +233,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MidRangePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MyBuildsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

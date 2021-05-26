@@ -13,7 +13,7 @@ namespace Buildar.App.DataAccess
     {
         readonly HttpClient _httpClient = new HttpClient();
 
-        static readonly Uri buildsBaseUri = new Uri("https://localhost:44367/api/Builds");
+        static readonly Uri buildsBaseUri = new Uri("http://localhost:45283/api/Builds");
 
         public async Task<Build[]> GetBuildsAsync()
         {

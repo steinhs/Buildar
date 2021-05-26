@@ -19,13 +19,13 @@ namespace Buildar.App.Views
         //Gets methods and data from CustomBuildViewModel ViewModel
         public CustomBuildViewModel ViewModel { get; } = new CustomBuildViewModel();
 
-
         public CustomBuildPage()
         {
             InitializeComponent();
 
             AddCommand = new RelayCommand<string>(async buildName =>
             {
+
                 var build = new Build()
                 {
                     BuildName = buildName,
@@ -37,7 +37,9 @@ namespace Buildar.App.Views
                     StorageId = storageSelected.Id,
                     MotherboardId = motherboardSelected.Id,
                     MemoryId = memorySelected.Id,
-                    UserId = 1 //#TODO TEMP **************************
+                    UserId = 1,
+                    //#TODO TEMP IMGURL
+                    ImgURL = "https://www.computerrepairsspringfield.com.au/wp-content/uploads/2017/04/custom-computer-build.jpg"//#TODO TEMP **************************,
                 };
                 if (await ViewModel.buildsDataAccess.AddBuildAsync(build))
                     ViewModel.Builds.Add(build);
@@ -53,16 +55,6 @@ namespace Buildar.App.Views
             await ViewModel.LoadMemorysAsync();
             await ViewModel.LoadMotherboardsAsync();
             await ViewModel.LoadPsusAsync();
-        }
-
-        //#TODO Might be removed
-        public class Parts
-        {
-            public string Part { get; set; }
-            public override string ToString()
-            {
-                return Part;
-            }
         }
 
         private  Cpu cpuSelected;

@@ -149,4 +149,8 @@
     <value>Community</value>
     <comment>Navigation view item name for Community</comment>
   </data>
+  <data name="Shell_MyBuilds.Content" xml:space="preserve">
+    <value>My Builds</value>
+    <comment>Navigation view item name for MyBuilds</comment>
+  </data>
 </root>
