@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Buildar.App.DataAccess;
+using Buildar.App.Helpers;
 using Buildar.App.ViewModels;
 using Buildar.Model;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
+using System.Linq;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml;
 
 namespace Buildar.App.Views
 {
@@ -13,8 +19,13 @@ namespace Buildar.App.Views
 
         public CommunityPage()
         {
-
             InitializeComponent();
+        }
+  
+
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ViewModel.selBuild = (Build)e.ClickedItem;
         }
         private async void Page_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -28,5 +39,6 @@ namespace Buildar.App.Views
             await ViewModel.LoadMotherboardsAsync();
             await ViewModel.LoadPsusAsync();
         }
+
     }
 }

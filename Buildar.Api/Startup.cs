@@ -35,7 +35,7 @@ namespace Buildar.Api
 
             //Using connectionstring from appsettings.json in Buildar.Api
             services.AddDbContext<BuildarContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("BuildarContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("DonauSteinhs")));
 
             //services.AddDatabaseDeveloperPageExceptionFilter();
 

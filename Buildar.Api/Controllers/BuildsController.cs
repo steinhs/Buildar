@@ -30,7 +30,7 @@ namespace Buildar.Api
 
         // GET: api/Builds/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Build>> GetBuild(string id)
+        public async Task<ActionResult<Build>> GetBuild(int id)
         {
             var build = await _context.Builds.FindAsync(id);
 
@@ -107,7 +107,7 @@ namespace Buildar.Api
 
         // DELETE: api/Builds/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Build>> DeleteBuild(string id)
+        public async Task<ActionResult<Build>> DeleteBuild(int id)
         {
             var build = await _context.Builds.FindAsync(id);
             if (build == null)

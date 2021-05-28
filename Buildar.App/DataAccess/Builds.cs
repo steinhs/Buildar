@@ -15,6 +15,8 @@ namespace Buildar.App.DataAccess
 
         static readonly Uri buildsBaseUri = new Uri("http://localhost:45283/api/Builds");
 
+       
+
         public async Task<Build[]> GetBuildsAsync()
         {
             HttpResponseMessage result = await _httpClient.GetAsync(buildsBaseUri);
@@ -48,6 +50,12 @@ namespace Buildar.App.DataAccess
             HttpResponseMessage result = await _httpClient.DeleteAsync(new Uri(buildsBaseUri, "builds/" + build.Id.ToString()));
             return result.IsSuccessStatusCode;
         }
+
+        /*internal async Task<bool> UpdateBuildAsync(Build build)
+        {
+            HttpResponseMessage result = await _httpClient.UpdateAsync(new Uri());
+            return result.IsSuccessStatusCode;
+        }*/
 
     }
 }

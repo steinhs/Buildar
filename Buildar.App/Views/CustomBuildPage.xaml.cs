@@ -8,6 +8,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 namespace Buildar.App.Views
 {
@@ -25,24 +26,35 @@ namespace Buildar.App.Views
 
             AddCommand = new RelayCommand<string>(async buildName =>
             {
-
-                var build = new Build()
+                try
                 {
-                    BuildName = buildName,
-                    CpuId = cpuSelected.Id,
-                    GpuId = gpuSelected.Id,
-                    PsuId = psuSelected.Id,
-                    CaseId = psuSelected.Id,
-                    CoolerId = coolerSelected.Id,
-                    StorageId = storageSelected.Id,
-                    MotherboardId = motherboardSelected.Id,
-                    MemoryId = memorySelected.Id,
-                    UserId = 1,
-                    //#TODO TEMP IMGURL
-                    ImgURL = "https://www.computerrepairsspringfield.com.au/wp-content/uploads/2017/04/custom-computer-build.jpg"//#TODO TEMP **************************,
-                };
-                if (await ViewModel.buildsDataAccess.AddBuildAsync(build))
-                    ViewModel.Builds.Add(build);
+                    var build = new Build()
+                    {
+                        BuildName = buildName,
+                        CpuId = cpuSelected.Id,
+                        GpuId = gpuSelected.Id,
+                        PsuId = psuSelected.Id,
+                        CaseId = caseSelected.Id,
+                        CoolerId = coolerSelected.Id,
+                        StorageId = storageSelected.Id,
+                        MotherboardId = motherboardSelected.Id,
+                        MemoryId = memorySelected.Id,
+                        UserId = 1,
+                        //#TODO TEMP IMGURL
+                        ImgURL = "https://www.computerrepairsspringfield.com.au/wp-content/uploads/2017/04/custom-computer-build.jpg"//#TODO TEMP **************************,
+                    };
+                    if (await ViewModel.buildsDataAccess.AddBuildAsync(build))
+                        ViewModel.Builds.Add(build);
+
+                    await new MessageDialog(buildName + " was created. Check it out in Community builds section!", "Success!").ShowAsync();
+
+                }
+                catch (System.NullReferenceException ex)
+                {
+                    Console.WriteLine("Input missing: " + ex);
+                    await new MessageDialog("Missing input. Check that all boxes have parts in them!", "Missing input").ShowAsync();
+                    return;
+                }
             });
         }
 

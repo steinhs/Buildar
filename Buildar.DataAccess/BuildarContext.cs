@@ -26,6 +26,21 @@ namespace Buildar.DataAccess
 
         public BuildarContext() { 
         }
-        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+            {
+            DataSource = "donau.hiof.no",
+            InitialCatalog = "steinhs",
+            UserID = "steinhs",
+            Password = "Cuda4405",
+            ConnectTimeout = 30,
+            Encrypt = false,
+            TrustServerCertificate = false, 
+            MultiSubnetFailover = false
+            };
+
+            optionsBuilder.UseSqlServer(builder.ConnectionString.ToString());
+        }
     }
 }

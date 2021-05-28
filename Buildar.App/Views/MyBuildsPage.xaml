@@ -9,10 +9,35 @@
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.
-            -->
+
+            <!-- TEMPLATE FROM COMMUNITYPAGE.
+                    TO BE CHANGED:
+                        SORT OUT BUILDS BASED OFF USERID WHEN LOGGED IN. DISPLAY DELETECOMMANd FOR BUIDLdS
+            
+            <GridView x:Name="gvCpus" ItemsSource="{x:Bind ViewModel.Builds, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="model:Build">
+                        <Grid Height="300" Width="420"  Margin="5" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWith="Commands" RelativePanel.AlignBottomWith="Commands">
+                            <Image Source="{x:Bind ImgURL}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Background="{ThemeResource SystemAltHighColor}" Padding="7" Opacity="0.8">
+                                <TextBlock TextAlignment="Center" FontSize="30" Text="{x:Bind BuildName}"/>
+                                <TextBlock TextAlignment="Center" FontSize="20" Text="{x:Bind Id}"/>
+                            </StackPanel>
+                            <CommandBar x:Name="Commands" RelativePanel.AlignRightWithPanel="True" ClosedDisplayMode="Minimal">
+                                <AppBarButton MaxHeight="30" x:Name="btnRemove" Content="Remove Build" Icon="Delete" Command="{x:Bind DeleteCommand}" CommandParameter="{Binding ElementName=Id, Path=Text}"/>
+                            </CommandBar>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>-->
+
+
+
         </Grid>
     </Grid>
 </Page>

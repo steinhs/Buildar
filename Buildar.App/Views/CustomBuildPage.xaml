@@ -13,28 +13,9 @@
     computerpart and can be selected and will replace the current part -->
     <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
         <Grid Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!-- TEMP GRIDVIEW
-            <GridView x:Name="gvCpus" ItemsSource="{x:Bind ViewModel.Cpus, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <GridView.ItemTemplate>
-                    <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="model:Cpu" >
-                        <Grid Height="200" Width="320" AutomationProperties.Name="{x:Bind Model}" Margin="5">
-                            <Image Source="{x:Bind ImgURL}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Background="{ThemeResource SystemAltHighColor}" Padding="7" Opacity="0.8">
-                                <TextBlock TextAlignment="Center" FontSize="30" Text="{x:Bind FullModelMaker}"/>
-                                <TextBlock TextAlignment="Center" FontSize="20" Text="{x:Bind Specs}"/>
-                            </StackPanel>
-                        </Grid>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-                <GridView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </GridView.ItemsPanel>
-            </GridView>-->
-
             <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel  Orientation="Horizontal" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWith="Commands" RelativePanel.AlignBottomWith="Commands">
+                <StackPanel  Orientation="Horizontal" RelativePanel.AlignLeftWithPanel="True"
+                             RelativePanel.AlignRightWith="Commands" RelativePanel.AlignBottomWith="Commands">
                     <TextBlock VerticalAlignment="Center" Text="Build Name:" />
                     <TextBox x:Name="buildName" PlaceholderText="Enter build name" Text="{x:Bind Name}"/>
                     <!--<TextBlock VerticalAlignment="Center" Text="Build Image URL:" />
